@@ -2,16 +2,16 @@ package com.educandoweb.course.entities.enums;
 
 public enum OrderStatus {
 	
-	WAITING_PAYMENT(1),
-	PAID(2),
-	SHIPPED(3),
-	DELIVERED(4),
-	CANCELED(5);
+	WAITING_PAYMENT,
+	PAID,
+	SHIPPED,
+	DELIVERED,
+	CANCELED;
 	/* caso prefira, atribuir valores p. ex. WAITING_PAYMENT(1), PAID(2), SHIPPED(3)...
 	 necessitando implementar atributo code e construtor e um método para retornar enum pelo code
 	 caso prefira simplesmente usar uma Annotation na classe Order, acima do atributo orderStatus [que seria @Enumerated(EnumType.STRING)]
 	 isso faria com que o nome do Enum aparecesse lá na requisição, não números
-	 */
+	 
 	 
 	 private int code;
 	 private OrderStatus(int code) {
@@ -30,5 +30,5 @@ public enum OrderStatus {
 	   }
 	   throw new IllegalArgumentException("Invalid OrderStatus code");
 	 }
-
+*/
 }

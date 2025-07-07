@@ -28,9 +28,8 @@ public class Order implements Serializable{
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant moment;
 	
-	// @Enumerated(EnumType.STRING)
-	// private OrderStatus orderStatus;
-	private Integer orderStatus;
+	@Enumerated(EnumType.STRING)
+	private OrderStatus orderStatus;
 	
 	@ManyToOne
 	@JoinColumn(name = "client_id")
@@ -43,7 +42,7 @@ public class Order implements Serializable{
 		super();
 		this.id = id;
 		this.moment = moment;
-		setOrderStatus(orderStatus);
+		this.orderStatus = orderStatus;
 		this.client = client;
 	}
 
@@ -64,13 +63,11 @@ public class Order implements Serializable{
 	}
 
 	public OrderStatus getOrderStatus() {
-		return OrderStatus.valueOf(orderStatus);
+		return orderStatus;
 	}
 
 	public void setOrderStatus(OrderStatus orderStatus) {
-		if (orderStatus != null) {
-			this.orderStatus = orderStatus.getCode();
-		}
+		this.orderStatus = orderStatus;
 	}
 
 	public User getClient() {
